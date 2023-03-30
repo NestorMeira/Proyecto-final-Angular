@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'proyecto-angular';
+
+  alumnos: string[] = ['Lucas Caro', 'Gustavo Gonzalez', 'Facundo Miranda', 'Milagros Amarilla', 'Santiago Lopez'];
+  cargando: boolean = false;
+  esperar: boolean = false;
+  cargarAlumnos() {
+    this.esperar = true;
+    setTimeout(() => {
+      this.esperar = false;
+      this.cargando = true;
+    }, 2000);
+  }
 }

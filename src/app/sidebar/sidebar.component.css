@@ -1,9 +1,0 @@
-aside{
-    background-color: rgb(189, 165, 174);
-    width: var(--sidebar-width) ;
-    height: calc(100vh - var(--toolbar-height));
-    position: fixed;
-    margin-left: 2px;
-    box-shadow: 3px 3px 3px 4px rgb(119, 124, 122);
-    padding: 3px;
-}
