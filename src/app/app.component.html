@@ -1,37 +1,3 @@
-<div
-  class="navbar"
-  [ngStyle]="
-    !cargando
-      ? { 'background-color': '#4d4d4d' }
-      : { 'background-color': 'green' }
-  "
->
-  <h1>
-    {{ !cargando ? title : (title | uppercase) }}
-  </h1>
-</div>
-<div>
-  <div>
-    <button
-      class="btn btn-primary mt-2 mb-2"
-      (click)="cargarAlumnos()"
-      [ngClass]="cargando ? 'btn-success' : 'btn-primary'"
-    >
-      {{ !cargando ? "Cargar Alumnos" : "Recargar Alumnos" }}
-    </button>
-  </div>
-  <div>
-    <h4 *ngIf="esperar">
-      {{
-        cargando && esperar
-          ? "Actualizando datos de alumnos..."
-          : "Cargando Alumnos.."
-      }}.
-    </h4>
-    <ul *ngIf="cargando">
-      <li *ngFor="let alumno of alumnos; let i = index">
-        ({{ i + 1 }}) {{ alumno }}
-      </li>
-    </ul>
-  </div>
+<div class="container">
+  <app-formulario></app-formulario>
 </div>

@@ -1,0 +1,79 @@
+
+<div
+  class="navbar"
+  [ngStyle]="
+    !cargando
+      ? { 'background-color': '#4d4d4d' }
+      : { 'background-color': 'green' }
+  "
+>
+  <h1>
+    {{ !cargando ? title : (title | uppercase) }}
+  </h1>
+</div>
+<div class="ml-5">
+  <div>
+    <button
+      class="btn btn-primary mt-2 mb-2"
+      (click)="cargarAlumnos()"
+      [ngClass]="cargando ? 'btn-success' : 'btn-primary'"
+    >
+      {{ !cargando ? "Cargar Alumnos" : "Recargar Alumnos" }}
+    </button>
+  </div>
+  <div>
+    <h4 *ngIf="esperar">
+      {{
+        cargando && esperar
+          ? "Actualizando datos de alumnos..."
+          : "Cargando Alumnos.."
+      }}.
+    </h4>
+    <ul *ngIf="cargando">
+      <li *ngFor="let alumno of alumnos; let i = index">
+        ({{ i + 1 }}) {{ alumno }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="formUser" (ngSubmit)="procesar()">
+      <div class="mb-2">
+        <label class="form-label"> Nombre </label>
+        <input
+          type="text"
+          formControlName="name"
+          class="form-control"
+          placeholder="por favor ingrese su nombre"
+        />
+        <div
+          class="alert alert-danger mt-2"
+          [hidden]="name.valid || name.pristine"
+        >
+          El nombre es obligatorio
+        </div>
+      </div>
+      <div class="mb-2">
+        <label class="form-label"> Email </label>
+        <input
+          type="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="por favor ingrese su email"
+        />
+      </div>
+      <div
+        class="alert alert-danger mt-2"
+        [hidden]="email.valid || email.pristine"
+      >
+        <span *ngIf="email?.errors?.['required']">El email es obligatorio</span>
+        <span *ngIf="email?.errors?. ['email']">El email debe ser valido</span>
+      </div>
+      <button class="btn btn-primary" [disabled]="formUser.invalid">
+        Enviar
+      </button>
+    </form>
+  </div>
+</div>
