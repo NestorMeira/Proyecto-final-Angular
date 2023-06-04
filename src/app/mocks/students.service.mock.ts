@@ -6,23 +6,23 @@ import { IStudentsService } from '../dashboard/students/services/students.servic
 const FAKE_STUDENTS: Student[] = [
   {
     id: 1,
-    firstName: 'Juan',
-    lastName: 'Perez',
-    email: 'juan.perez@gmail.com',
+    firstName: 'Gonzalo',
+    lastName: 'Terra',
+    email: 'gonza.terra@gmail.com',
     isActive: true
   },
   {
     id: 2,
-    firstName: 'Maria',
-    lastName: 'Gomez',
-    email: 'maria.gomez@gmail.com',
+    firstName: 'Natalia',
+    lastName: 'uberall',
+    email: 'natalia.uberall@gmail.com',
     isActive: true
   },
   {
     id: 3,
-    firstName: 'Pedro',
-    lastName: 'Rodriguez',
-    email: 'pedro.rodriguez@gmail.com',
+    firstName: 'Lucas',
+    lastName: 'caro',
+    email: 'lucas.caro@gmail.com',
     isActive: true
   }
 
